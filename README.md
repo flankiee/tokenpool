@@ -6,7 +6,6 @@ Developed by the 0xBitcoin Community
 
 A pool for mining RC20 Tokens
 
-
 CSS Colors: https://flatuicolors.com/palette/au
 
 1) improve colors
@@ -15,17 +14,22 @@ CSS Colors: https://flatuicolors.com/palette/au
 4) separate geth
 5) why does it say 'Reply:OK' ??
 
-### BASIC SETUP  (needs Node8)
-1. npm install -g node-gyp
-1. sudo apt-get install build-essential
-2. npm install
-3. npm run webpack  #(to build the website files)
-4. rename 'sample.account.config.js' to 'account.config.js' and fill it with the pool's ethereum account data
+上传文件到服务器
 
-5. install redis-server and make sure it is running
-6. Edit pool.config.js to your tastes
-7. Edit the website files in /app  to change the look of the website
-8. npm run server #(or npm run server test for Ropsten test net)
+### BASIC SETUP  (needs Node8)
+1. curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
+   sudo apt-get install -y nodejs
+                                                                             //npm install -g node-gyp
+2. sudo apt-get install build-essential
+3. npm install
+4. npm run webpack  #(to build the website files)
+5. rename 'sample.account.config.js' to 'account.config.js' and fill it with the pool's ethereum account data
+
+6. install redis-server and make sure it is running
+7. Edit pool.config.js to your tastes
+8. Edit the website files in /app  to change the look of the website
+9. npm run server #(or npm run server test for Ropsten test net)
 
 
 ### HOW TO USE
@@ -34,7 +38,14 @@ CSS Colors: https://flatuicolors.com/palette/au
 
 
 ## Installing Redis  
-  1. sudo apt-get install redis
+  1. sudo apt-get install redis-server
+  1.1检查Redis服务器系统进程
+  ps -aux|grep redis
+  1.2通过启动命令检查Redis服务器状态
+  netstat -nlt|grep 6379
+  1.3通过启动命令检查Redis服务器状态
+  sudo /etc/init.d/redis-server status
+  
   2. sudo service redis-server start
 
    - Redis will serve/connect at localhost:6379 by default - the pool will use this port
